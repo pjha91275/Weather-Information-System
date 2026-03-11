@@ -46,7 +46,7 @@ A professional-grade web application for real-time weather data and 5-day foreca
 - ⚠️ Invalid input triggers a warning message.
 - 📊 Valid search displays weather and logs it in the database.
 
-## Screenshots
+## UI Highlights
 - 🏠 **Index Page:** Auto-detected weather card with color-coded temperatures.
 - 🚫 **Search Validation Warning:** Error message for invalid city input.
 - 🌈 **Result Page:** Compact card with colorful accents and weather backgrounds.
@@ -62,7 +62,7 @@ A professional-grade web application for real-time weather data and 5-day foreca
 | TC05 | 🗑️ History Cleanup | Delete All | Records cleared | Passed |
 
 ## GitHub Repository
-[Weather Information System](https://github.com/your-username/Weather-Information-System)
+[Weather Information System](https://github.com/pjha91275/Weather-Information-System)
 
 ## Future Enhancements
 - ⭐ Save favorite cities
