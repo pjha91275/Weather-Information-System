@@ -147,7 +147,7 @@ fetch("WeatherServlet?action=suggest&q=auto&lat="+lat+"&lon="+lon)
 var html="";
 
 html+="📍 <span style='font-weight:bold;'>"+data.name+"</span><br>";
-html+="<span style='color: #ffca28;'>🌡</span> <span style='color: #ffca28;'>"+data.main.temp+" °C</span><br>";
+html+="<span style='color: #ff5722;'>🌡</span> <span style='color: #ff5722;'>"+data.main.temp+" °C</span><br>";
 html+="<span style='color: #81d4fa;'>☁</span> <span style='color: #81d4fa;'>"+data.weather[0].description+"</span><br>";
 html+="<span style='color: #4db6ac;'>💧</span> <span style='color: #4db6ac;'>Humidity "+data.main.humidity+"%</span>";
 
@@ -199,17 +199,29 @@ li.className="list-group-item";
 li.innerHTML=c.name+", "+c.country;
 
 li.onclick=function(){
-
-document.getElementById("location").value=c.name;
-list.innerHTML="";
-
+    document.getElementById("location").value=c.name;
+    list.innerHTML="";
+    list.style.display = "none";
 };
-
 list.appendChild(li);
+});
+list.style.display = "block";
+}
 
+// Close suggestions dropdown when clicking outside search bar or dropdown
+document.addEventListener('click', function(event) {
+    var searchBar = document.getElementById('location');
+    var dropdown = document.getElementById('suggestions');
+    if (!searchBar.contains(event.target) && !dropdown.contains(event.target)) {
+        dropdown.style.display = 'none';
+    }
 });
 
-}
+// Keep dropdown open when clicking inside search bar
+document.getElementById('location').addEventListener('click', function() {
+    var dropdown = document.getElementById('suggestions');
+    if(dropdown.innerHTML!="") dropdown.style.display = 'block';
+});
 
 </script>
 

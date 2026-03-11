@@ -35,15 +35,16 @@ body.mist-bg { background-image: url('https://images.unsplash.com/photo-14854335
 body.default-bg { background-image: url('https://images.unsplash.com/photo-1502082553048-f009c37129b9?auto=format&fit=crop&w=1920&q=80'); }
 
 .result-card{
-border-radius:24px;
-padding:30px;
-color:white;
-backdrop-filter:blur(15px);
-border: 2px solid rgba(255,255,255,0.3);
-box-shadow:0 30px 60px rgba(0,0,0,0.6);
-min-width: 450px;
-max-width: 600px;
-margin: 0 auto;
+    border-radius:24px;
+    padding:30px;
+    color:white;
+    backdrop-filter:blur(15px);
+    border: 2px solid rgba(255,255,255,0.3);
+    box-shadow:0 30px 60px rgba(0,0,0,0.6);
+    min-width: 450px;
+    max-width: 900px;
+    width: auto;
+    margin: 0 auto;
 }
 
 /* Weather specific card colors */
@@ -88,17 +89,19 @@ margin-top:20px;
 }
 
 .forecastCard{
-
-background:rgba(255,255,255,0.2);
-
-border-radius:12px;
-
-padding:15px;
-
-flex:1;
-
-text-align:center;
-
+    background:rgba(255,255,255,0.2);
+    border-radius:12px;
+    padding:15px;
+    flex:1;
+    text-align:center;
+}
+.forecast-temp {
+    color: #ffca28;
+    font-weight: bold;
+}
+.forecast-desc {
+    color: #81d4fa;
+    font-weight: bold;
 }
 
 </style>
@@ -126,15 +129,13 @@ text-align:center;
 
 <div class="forecastRow">
 
-<c:forEach var="f" items="${forecast}" begin="0" end="4">
-
-<div class="forecastCard">
-
-🌡 ${f.main.temp}°C<br>
-☁ ${f.weather[0].description}
-
-</div>
-
+<c:forEach var="f" items="${forecast}">
+    <div class="forecastCard">
+        <div>${f.dayName}</div>
+        <div><span class="forecast-temp">🌡 ${f.temp}°C</span></div>
+        <div><span class="forecast-desc">☁ ${f.description}</span></div>
+        <img src="https://openweathermap.org/img/wn/${f.icon}@2x.png" />
+    </div>
 </c:forEach>
 
 </div>

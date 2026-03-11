@@ -100,13 +100,13 @@ public class WeatherServlet extends HttpServlet {
 			JSONObject forecastObj = new JSONObject(fjson.toString());
 			JSONArray forecastArr = forecastObj.getJSONArray("list");
 			SimpleDateFormat dayFmt = new SimpleDateFormat("EEEE, dd MMM yyyy");
-			String lastDate = "";
+			String prevDate = "";
 			java.util.List<Map<String, Object>> forecastList = new java.util.ArrayList<>();
 			for (int i = 0; i < forecastArr.length(); i++) {
 				JSONObject f = forecastArr.getJSONObject(i);
 				String dtTxt = f.getString("dt_txt");
 				String date = dtTxt.substring(0, 10);
-				if (!date.equals(lastDate)) {
+				if (!date.equals(prevDate)) {
 					Map<String, Object> entry = new HashMap<>();
 					entry.put("temp", f.getJSONObject("main").getDouble("temp"));
 					entry.put("description", f.getJSONArray("weather").getJSONObject(0).getString("description"));
@@ -118,8 +118,8 @@ public class WeatherServlet extends HttpServlet {
 						entry.put("dayName", date);
 					}
 					forecastList.add(entry);
-					lastDate = date;
-					if (forecastList.size() >= 5) break;
+					prevDate = date;
+					if (forecastList.size() == 5) break;
 				}
 			}
 			req.setAttribute("forecast", forecastList);
