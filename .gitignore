@@ -1,0 +1,29 @@
+# Eclipse workspace files
+.metadata/
+Servers/
+
+# Build output
+build/
+bin/
+*.class
+
+# Logs and temporary files
+*.log
+*.tmp
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Eclipse internal settings
+.settings/
+
+# Unnecessary generated files
+compile_errors.txt
+doc_text.txt
+document.xml
+
+# Sensitive configs
+config.properties
+src/main/java/config.properties
+src/main/resources/config.properties
