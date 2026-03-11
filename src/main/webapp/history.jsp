@@ -1,118 +1,115 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
-<!DOCTYPE html>
+        <!DOCTYPE html>
 
-<html>
+        <html>
 
-<head>
+        <head>
 
-<title>Weather History</title>
+            <title>Weather History</title>
 
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+            <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 
-<style>
+            <style>
+                body {
+                    background: url("https://images.unsplash.com/photo-1472145246862-b24cf25c4a36");
+                    background-size: cover;
+                    background-position: center;
+                    min-height: 100vh;
+                }
 
-body{
-background:url("https://images.unsplash.com/photo-1472145246862-b24cf25c4a36");
-background-size:cover;
-background-position:center;
-min-height:100vh;
-}
+                .glass {
+                    background: rgba(255, 255, 255, 0.85);
+                    border-radius: 15px;
+                    padding: 25px;
+                }
+            </style>
 
-.glass{
-background:rgba(255,255,255,0.85);
-border-radius:15px;
-padding:25px;
-}
+        </head>
 
-</style>
+        <body>
 
-</head>
+            <div class="container mt-5">
 
-<body>
+                <div class="glass">
 
-<div class="container mt-5">
+                    <h3 class="text-center mb-4">Search History</h3>
 
-<div class="glass">
+                    <div class="d-flex justify-content-between mb-3">
 
-<h3 class="text-center mb-4">Search History</h3>
+                        <a href="index.jsp" class="btn btn-secondary">Back</a>
 
-<div class="d-flex justify-content-between mb-3">
+                        <a href="WeatherServlet?action=delete" class="btn btn-danger"
+                            onclick="return confirm('Delete all history?');">
 
-<a href="index.jsp" class="btn btn-secondary">Back</a>
+                            Delete History
 
-<a href="WeatherServlet?action=delete"
-class="btn btn-danger"
-onclick="return confirm('Delete all history?');">
+                        </a>
 
-Delete History
+                    </div>
 
-</a>
+                    <table class="table table-striped table-hover">
 
-</div>
+                        <thead class="table-dark">
 
-<table class="table table-striped table-hover">
+                            <tr>
 
-<thead class="table-dark">
+                                <th>Location</th>
+                                <th>Temperature</th>
+                                <th>Description</th>
+                                <th>Search Time</th>
+                                <th>Action</th>
 
-<tr>
+                            </tr>
 
-<th>Location</th>
-<th>Temperature</th>
-<th>Description</th>
-<th>Search Time</th>
-<th>Action</th>
+                        </thead>
 
-</tr>
+                        <tbody>
 
-</thead>
+                            <c:if test="${empty historyList}">
 
-<tbody>
+                                <tr>
 
-<c:if test="${empty historyList}">
+                                    <td colspan="5" class="text-center">No history found</td>
 
-<tr>
+                                </tr>
 
-<td colspan="5" class="text-center">No history found</td>
+                            </c:if>
 
-</tr>
+                            <c:forEach var="w" items="${historyList}">
 
-</c:if>
+                                <tr>
 
-<c:forEach var="w" items="${historyList}">
+                                    <td>${w.location}</td>
 
-<tr>
+                                    <td>${w.temperature} °C</td>
 
-<td>${w.location}</td>
+                                    <td>${w.description}</td>
 
-<td>${w.temperature} °C</td>
+                                    <td>${w.searchTime}</td>
 
-<td>${w.description}</td>
+                                    <td>
 
-<td>${w.searchTime}</td>
+                                        <a href="WeatherServlet?location=${w.location}" class="btn btn-sm btn-primary">
+                                            View Latest
+                                        </a>
 
-<td>
+                                    </td>
 
-<a href="WeatherServlet?location=${w.location}" class="btn btn-sm btn-primary">
-View Latest
-</a>
+                                </tr>
 
-</td>
+                            </c:forEach>
 
-</tr>
+                        </tbody>
 
-</c:forEach>
+                    </table>
 
-</tbody>
+                </div>
 
-</table>
+            </div>
 
-</div>
+        </body>
 
-</div>
-
-</body>
-
-</html>
+        </html>
