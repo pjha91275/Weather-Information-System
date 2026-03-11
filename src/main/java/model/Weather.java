@@ -12,77 +12,78 @@ public class Weather {
     private String icon;
     private String searchTime;
 
-    public Weather(){}
+    public Weather() {
+    }
 
-    public String getLocation(){
+    public String getLocation() {
         return location;
     }
 
-    public void setLocation(String location){
+    public void setLocation(String location) {
         this.location = location;
     }
 
-    public double getTemperature(){
+    public double getTemperature() {
         return temperature;
     }
 
-    public void setTemperature(double temperature){
+    public void setTemperature(double temperature) {
         this.temperature = temperature;
     }
 
-    public double getFeelsLike(){
+    public double getFeelsLike() {
         return feelsLike;
     }
 
-    public void setFeelsLike(double feelsLike){
+    public void setFeelsLike(double feelsLike) {
         this.feelsLike = feelsLike;
     }
 
-    public double getHumidity(){
+    public double getHumidity() {
         return humidity;
     }
 
-    public void setHumidity(double humidity){
+    public void setHumidity(double humidity) {
         this.humidity = humidity;
     }
 
-    public double getPressure(){
+    public double getPressure() {
         return pressure;
     }
 
-    public void setPressure(double pressure){
+    public void setPressure(double pressure) {
         this.pressure = pressure;
     }
 
-    public double getWindSpeed(){
+    public double getWindSpeed() {
         return windSpeed;
     }
 
-    public void setWindSpeed(double windSpeed){
+    public void setWindSpeed(double windSpeed) {
         this.windSpeed = windSpeed;
     }
 
-    public String getDescription(){
+    public String getDescription() {
         return description;
     }
 
-    public void setDescription(String description){
+    public void setDescription(String description) {
         this.description = description;
     }
 
-    public String getIcon(){
+    public String getIcon() {
         return icon;
     }
 
-    public void setIcon(String icon){
+    public void setIcon(String icon) {
         this.icon = icon;
     }
 
-    public String getSearchTime(){
+    public String getSearchTime() {
         return searchTime;
     }
 
-    public void setSearchTime(String searchTime){
+    public void setSearchTime(String searchTime) {
         this.searchTime = searchTime;
     }
 }
