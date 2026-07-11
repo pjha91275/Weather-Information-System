@@ -1,6 +1,6 @@
 # Weather Information System ☀️🌧️🌡️
 
-A professional-grade web application for real-time weather data and 5-day forecasts, built using Java, JSP, Servlets, MySQL, and Bootstrap.
+A full-stack Java web application that provides real-time weather information and 5-day forecasts using the OpenWeatherMap API. The project follows the MVC architecture and demonstrates secure API integration, geolocation, and database-driven search history.
 
 ## Features
 - 🔒 **Secure API Management:** API credentials are hidden in backend config files.
@@ -39,6 +39,14 @@ A professional-grade web application for real-time weather data and 5-day foreca
 - 💻 Eclipse IDE
 - 🛠️ Apache Tomcat Server
 - 🐙 Git & GitHub
+
+## 🏛️ Architecture
+
+- Model: Weather data & MySQL persistence
+- View: JSP pages with Bootstrap UI
+- Controller: Java Servlets
+- Database: MySQL
+- External Service: OpenWeatherMap API
 
 ## Use Case
 - 👤 User visits the site; system auto-detects location and fetches weather securely.
